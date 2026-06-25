@@ -67,17 +67,18 @@
     /* ── LAYOUT ───────────────────────────────────────────── */
     .site-wrap {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 280px 1fr;
       min-height: 100vh;
+      width: 100%;
     }
 
     /* ── SIDEBAR ──────────────────────────────────────────── */
     .sidebar {
       position: fixed;
       top: 0; left: 0;
-      width: 220px;
+      width: 280px;
       height: 100vh;
-      padding: 48px 32px;
+      padding: 56px 44px;
       display: flex;
       flex-direction: column;
       border-right: 1px solid var(--border);
@@ -185,8 +186,10 @@
 
     /* ── MAIN ─────────────────────────────────────────────── */
     main {
-      margin-left: 220px;
-      padding: 0 80px 120px 80px;
+      grid-column: 2;
+      min-width: 0;
+      width: 100%;
+      padding: 0 8vw 160px 8vw;
     }
 
     /* ── HERO ─────────────────────────────────────────────── */
@@ -210,11 +213,11 @@
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(64px, 8vw, 108px);
+      font-size: clamp(96px, 13vw, 180px);
       font-weight: 300;
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      margin-bottom: 40px;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      margin-bottom: 48px;
       overflow: hidden;
     }
 
@@ -236,11 +239,11 @@
     }
 
     .hero-bio {
-      max-width: 480px;
-      font-size: 15px;
+      max-width: 560px;
+      font-size: 17px;
       font-weight: 300;
       color: var(--fg-muted);
-      line-height: 1.8;
+      line-height: 1.9;
       transition: color var(--transition);
     }
 
@@ -272,7 +275,7 @@
 
     /* ── SECTIONS ─────────────────────────────────────────── */
     section {
-      padding: 120px 0;
+      padding: 160px 0;
       border-top: 1px solid var(--border);
       transition: border-color var(--transition);
     }
@@ -282,7 +285,7 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--fg-muted);
-      margin-bottom: 64px;
+      margin-bottom: 80px;
       transition: color var(--transition);
     }
 
@@ -294,7 +297,7 @@
       grid-template-columns: 1fr auto;
       align-items: start;
       gap: 24px;
-      padding: 28px 0;
+      padding: 40px 0;
       border-bottom: 1px solid var(--border);
       cursor: pointer;
       transition: border-color var(--transition);
@@ -322,7 +325,7 @@
 
     .project-name {
       font-family: var(--serif);
-      font-size: clamp(22px, 3vw, 32px);
+      font-size: clamp(32px, 4vw, 52px);
       font-weight: 300;
       letter-spacing: -0.01em;
       transition: color 0.25s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1);
@@ -330,12 +333,13 @@
     }
 
     .project-desc {
-      font-size: 12px;
+      font-size: 14px;
       color: var(--fg-muted);
-      margin-top: 6px;
+      margin-top: 10px;
       font-weight: 300;
       transition: color var(--transition);
-      max-width: 420px;
+      max-width: 480px;
+      line-height: 1.7;
     }
 
     .project-meta {
@@ -384,7 +388,7 @@
     }
 
     .about-text {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 300;
       line-height: 1.9;
       color: var(--fg-muted);
@@ -422,11 +426,11 @@
     /* ── CONTACT ──────────────────────────────────────────── */
     .contact-heading {
       font-family: var(--serif);
-      font-size: clamp(36px, 5vw, 64px);
+      font-size: clamp(52px, 7vw, 96px);
       font-weight: 300;
       letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 40px;
+      line-height: 1.05;
+      margin-bottom: 56px;
     }
 
     .contact-links {
@@ -521,7 +525,7 @@
 
       .sidebar.open { transform: translateX(0); }
 
-      main { margin-left: 0; padding: 0 24px 80px; }
+      main { margin-left: 0; padding: 0 28px 80px; }
 
       .hamburger { display: flex; }
 
