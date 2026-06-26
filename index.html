@@ -34,14 +34,42 @@
       --border:   rgba(0,0,0,0.07);
     }
 
-    [data-theme="mono"] {
+    [data-theme="terminal"] {
       --bg:       #0A0A0A;
       --bg-card:  #0A0A0A;
-      --fg:       #E8FFE8;
-      --fg-muted: #4A7A4A;
-      --fg-dim:   #1A2A1A;
-      --accent:   #50FF50;
-      --border:   rgba(80,255,80,0.1);
+      --fg:       #39FF14;
+      --fg-muted: #1A7A00;
+      --fg-dim:   #0A2A00;
+      --accent:   #39FF14;
+      --border:   rgba(57,255,20,0.12);
+      --sans:     'JetBrains Mono', monospace;
+      --serif:    'JetBrains Mono', monospace;
+    }
+
+    /* scanlines só no terminal */
+    [data-theme="terminal"] body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9997;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.18) 3px,
+        rgba(0,0,0,0.18) 4px
+      );
+    }
+
+    [data-theme="terminal"] .section-label::before,
+    [data-theme="terminal"] .hero-eyebrow::before {
+      content: '> ';
+      color: var(--accent);
+    }
+
+    [data-theme="terminal"] .hero-title {
+      letter-spacing: -0.01em;
     }
 
     /* ── RESET ────────────────────────────────────────────── */
@@ -78,12 +106,13 @@
       top: 0; left: 0;
       width: 280px;
       height: 100vh;
-      padding: 56px 44px;
+      padding: 40px 28px;
       display: flex;
       flex-direction: column;
       border-right: 1px solid var(--border);
+      background: var(--bg);
       z-index: 10;
-      transition: border-color var(--transition);
+      transition: border-color var(--transition), background var(--transition);
     }
 
     .sidebar-name {
@@ -517,10 +546,11 @@
 
       .sidebar {
         width: 100%;
-        height: auto;
+        height: 100vh;
         transform: translateX(-100%);
-        transition: transform var(--transition), border-color var(--transition);
+        transition: transform var(--transition), background var(--transition);
         padding: 80px 32px 48px;
+        background: var(--bg);
       }
 
       .sidebar.open { transform: translateX(0); }
@@ -578,8 +608,7 @@
     <!-- ── SIDEBAR ── -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-name">
-        Eiti Kobata
-        <span>BH, Brazil</span>
+        <span>Belo Horizonte, Brazil</span>
       </div>
 
       <nav>
@@ -595,9 +624,9 @@
         <div class="theme-switcher">
           <button class="theme-btn active" data-theme="dark">Dark</button>
           <button class="theme-btn" data-theme="light">Light</button>
-          <button class="theme-btn" data-theme="mono">Mono</button>
+          <button class="theme-btn" data-theme="terminal">Terminal</button>
         </div>
-        <p class="sidebar-copy">© 2025 Eiti Kobata</p>
+        <p class="sidebar-copy">© 2026 Eiti Koabta</p>
       </div>
     </aside>
 
@@ -726,7 +755,7 @@
         <nav class="contact-links reveal reveal-delay-2">
           <a href="https://www.linkedin.com/in/eiti-kobata-ab5ba7214/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://github.com/eitikobata" class="contact-link" target="_blank" rel="noopener">GitHub</a>
-          <a href="mailto:eiti.kobata@gmail.com" class="contact-link">E-mail</a>
+          <a href="mailto:eiti.kobata@gmail.com" class="contact-link">your@email.com</a>
         </nav>
       </section>
 
